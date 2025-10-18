@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koala & Hryushka’s First Date — הזמנה לדייט ראשון</title>
+  <meta name="description" content="Koala & Hryushka’s First Date — הזמנה מאוד רומנטית ב-MOON SUSHI, תל אביב (בוגרשוב) — 21.10.2025 בשעה 17:30" />
+  <meta property="og:title" content="Koala & Hryushka’s First Date"/>
+  <meta property="og:description" content="MOON SUSHI · תל אביב · 21.10.2025 · 17:30"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="he_IL"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Heebo', 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; animation: fadeIn .6s ease-out both; }
+    .num { font-variant-numeric: tabular-nums; }
+    @keyframes fadeIn { from {opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+    .title-gradient { background: linear-gradient(90deg, #ec4899, #f87171, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .vid { width: 100%; height: auto; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); background: rgba(0,0,0,.04); }
+  @media (max-width: 430px) {
+    .vid { max-height: 240px; object-fit: contain; }  /* לא חותך, מתאים למסך */
+  }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-rose-50 via-pink-50 to-rose-100 text-gray-800">
+  <div class="pointer-events-none select-none -z-10">
+    <div class="fixed -top-10 -left-10 w-56 h-56 rounded-full blur-3xl opacity-40 bg-rose-200"></div>
+    <div class="fixed -bottom-10 -right-10 w-64 h-64 rounded-full blur-3xl opacity-40 bg-pink-200"></div>
+  </div>
+
+  <header class="max-w-3xl mx-auto px-6 py-16 text-center">
+<h1 dir="ltr" class="text-center drop-shadow-sm leading-tight">
+  <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Koala</span> 🐨 
+  <span class="text-gray-800 text-3xl md:text-5xl font-extrabold">&amp;</span> 
+  <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Hryushka</span> 🐷
+  <br>
+  <span class="bg-gradient-to-r from-amber-400 via-pink-400 to-rose-500 bg-clip-text text-transparent font-semibold text-2xl md:text-4xl italic">
+    First Date
+  </span>
+</h1>
+
+    <p class="mt-4 text-lg md:text-xl text-gray-700 font-medium">הזמנה מאוד מאוד רומנטית לדייט ראשון 🍣❤️</p>
+    <p class="mt-2 text-sm opacity-80 italic">"יש רגעים שלא מסבירים – פשוט חווים"</p>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 pb-24">
+    <section class="bg-white/70 backdrop-blur shadow-xl rounded-2xl p-6 md:p-10 border border-rose-100">
+      <div class="flex items-center justify-center gap-3 text-rose-500 text-2xl">
+        <span>✧</span><span>הזמנה לדייט ראשון</span><span>✧</span>
+      </div>
+
+      <h2 class="mt-4 text-2xl md:text-3xl font-semibold text-center">MOON SUSHI — תל אביב, בוגרשוב</h2>
+      <p id="prettyDate" class="mt-2 text-center text-base opacity-80"></p>
+
+      <div class="mt-6 grid md:grid-cols-3 gap-4 text-center">
+        <div class="bg-rose-50 rounded-xl p-4">
+          <div class="text-sm opacity-70">תאריך</div>
+          <div class="text-xl md:text-2xl font-bold">21.10.2025</div>
+        </div>
+        <div class="bg-rose-50 rounded-xl p-4">
+          <div class="text-sm opacity-70">שעה</div>
+          <div class="text-xl md:text-2xl font-bold">17:30</div>
+        </div>
+        <a id="mapsLink"
+         href="https://maps.app.goo.gl/m6kBDmE7hJWNE5pb9"
+         target="_blank" rel="noreferrer"
+         class="bg-rose-50 rounded-xl p-4 hover:bg-rose-100 transition"
+         aria-label="פתח מפה ב-Google Maps">
+        <div class="text-sm opacity-70">מיקום</div>
+        <div class="text-xl md:text-2xl font-bold decoration-rose-300">מפה</div>
+        </a>
+
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div class="relative group order-1 md:order-1">
+          <video id="videoRight" class="vid" autoplay muted playsinline loop preload="metadata" poster="restaurant_poster.jpg">
+            <source src="koala_pig_restaurant.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="relative group order-2 md:order-2">
+          <video id="videoLeft" class="vid" autoplay muted playsinline loop preload="metadata" poster="park_poster.jpg">
+            <source src="koala_pig_park.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <div class="text-center text-sm opacity-70 mb-2">ספירה לאחור לערב שלנו</div>
+        <div class="flex justify-center gap-3 md:gap-6" id="countdown" dir="ltr" aria-live="polite"></div>
+      </div>
+
+      <p class="mt-10 text-center leading-8 text-gray-700">
+        חריושקה וקואלה יוצאים סוף-סוף לדייט הראשון שלהם 🐨🐷 — ערב עם סושי, חיוכים, ורגעים של אהבה אמיתית.
+      </p>
+
+      <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
+        <a id="whatsAppLink" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-2xl shadow bg-rose-500 text-white hover:bg-rose-600 transition text-lg" aria-label="פתח וואטסאפ אליי">אני באה! 💌</a>
+        <a id="mapsLink2" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg" aria-label="ניווט למקום">ניווט למקום 📍</a>
+        <a id="icsLink" download="date.ics" class="px-6 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg" aria-label="הוספה ליומן">הוספה ליומן 🗓️</a>
+      </div>
+    </section>
+
+    <div class="mt-10 flex items-center justify-center gap-3 opacity-90">
+      <span class="text-3xl">🐨</span>
+      <span class="text-pink-400">+</span>
+      <span class="text-3xl">🐷</span>
+      <span class="text-pink-400">=</span>
+      <span class="text-3xl">❤️</span>
+    </div>
+  </main>
+</body>
+</html>
