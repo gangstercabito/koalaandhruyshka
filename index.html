@@ -11,92 +11,92 @@
   <meta property="og:locale" content="he_IL"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Heebo', 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; animation: fadeIn .6s ease-out both; }
+    body { font-family: 'Heebo', 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; animation: fadeIn .6s ease-out both; overflow-x: hidden; }
     .num { font-variant-numeric: tabular-nums; }
     @keyframes fadeIn { from {opacity:0; transform: translateY(8px);} to {opacity:1; transform:none;} }
     .title-gradient { background: linear-gradient(90deg, #ec4899, #f87171, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .vid { width: 100%; height: auto; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); background: rgba(0,0,0,.04); }
-  @media (max-width: 430px) {
-    .vid { max-height: 240px; object-fit: contain; }  /* לא חותך, מתאים למסך */
-  }
+    /* Videos: cover on mobile (no bars), contain on desktop (no crop) */
+    .vid { width: 100%; height: 12rem; border-radius: 0.75rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); background: #00000010; object-fit: cover; }
+    @media (min-width: 640px) { .vid { height: 16rem; } }
+    @media (min-width: 768px) { .vid { height: 22rem; object-fit: contain; background: #000; } }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-b from-rose-50 via-pink-50 to-rose-100 text-gray-800">
-  <div class="pointer-events-none select-none -z-10">
-    <div class="fixed -top-10 -left-10 w-56 h-56 rounded-full blur-3xl opacity-40 bg-rose-200"></div>
-    <div class="fixed -bottom-10 -right-10 w-64 h-64 rounded-full blur-3xl opacity-40 bg-pink-200"></div>
+<body class="relative min-h-screen bg-rose-50 text-gray-800 overflow-x-hidden">
+  <div class="pointer-events-none select-none absolute inset-0 -z-10">
+    <div class="absolute -top-10 -left-10 w-56 h-56 rounded-full blur-3xl opacity-15 bg-rose-200"></div>
+    <div class="absolute -bottom-10 -right-10 w-64 h-64 rounded-full blur-3xl opacity-15 bg-pink-200"></div>
   </div>
 
-  <header class="max-w-3xl mx-auto px-6 py-16 text-center">
-<h1 dir="ltr" class="text-center drop-shadow-sm leading-tight">
-  <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Koala</span> 🐨 
-  <span class="text-gray-800 text-3xl md:text-5xl font-extrabold">&amp;</span> 
-  <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Hryushka</span> 🐷
-  <br>
-  <span class="bg-gradient-to-r from-amber-400 via-pink-400 to-rose-500 bg-clip-text text-transparent font-semibold text-2xl md:text-4xl italic">
-    First Date
-  </span>
-</h1>
-
-    <p class="mt-4 text-lg md:text-xl text-gray-700 font-medium">הזמנה מאוד מאוד רומנטית לדייט ראשון 🍣❤️</p>
+  <header class="w-full max-w-screen mx-auto px-4 md:px-6 py-16 text-center">
+    <h1 dir="ltr" class="text-center drop-shadow-sm leading-tight">
+      <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Koala</span> 🐨 
+      <span class="text-gray-800 text-3xl md:text-5xl font-extrabold">&amp;</span> 
+      <span class="title-gradient text-4xl md:text-6xl font-extrabold tracking-tight">Hryushka</span> 🐷
+      <br>
+      <span class="bg-gradient-to-r from-amber-400 via-pink-400 to-rose-500 bg-clip-text text-transparent font-semibold text-2xl md:text-4xl italic">
+        First Date
+      </span>
+    </h1>
+    <p class="mt-4 text-base md:text-xl text-gray-700 font-medium">הזמנה מאוד מאוד רומנטית לדייט ראשון 🍣❤️</p>
     <p class="mt-2 text-sm opacity-80 italic">"יש רגעים שלא מסבירים – פשוט חווים"</p>
   </header>
 
-  <main class="max-w-3xl mx-auto px-6 pb-24">
-    <section class="bg-white/70 backdrop-blur shadow-xl rounded-2xl p-6 md:p-10 border border-rose-100">
+  <main class="w-full max-w-screen mx-auto px-4 md:px-6 pb-24 overflow-hidden">
+    <section class="relative z-10 bg-white/70 backdrop-blur shadow-xl rounded-2xl p-6 md:p-10 border border-rose-100 w-full max-w-full">
       <div class="flex items-center justify-center gap-3 text-rose-500 text-2xl">
         <span>✧</span><span>הזמנה לדייט ראשון</span><span>✧</span>
       </div>
 
       <h2 class="mt-4 text-2xl md:text-3xl font-semibold text-center">MOON SUSHI — תל אביב, בוגרשוב</h2>
-      <p id="prettyDate" class="mt-2 text-center text-base opacity-80"></p>
+      <p id="prettyDate" class="mt-2 text-center text-base opacity-80">יום שלישי, 21.10.2025 · 17:30</p>
 
-      <div class="mt-6 grid md:grid-cols-3 gap-4 text-center">
-        <div class="bg-rose-50 rounded-xl p-4">
+      <div class="mt-6 grid grid-cols-3 gap-3 md:gap-4 text-center">
+        <div class="bg-rose-50 rounded-xl p-3 md:p-4">
           <div class="text-sm opacity-70">תאריך</div>
-          <div class="text-xl md:text-2xl font-bold">21.10.2025</div>
+          <div class="text-lg md:text-2xl font-bold">21.10.2025</div>
         </div>
-        <div class="bg-rose-50 rounded-xl p-4">
+        <div class="bg-rose-50 rounded-xl p-3 md:p-4">
           <div class="text-sm opacity-70">שעה</div>
-          <div class="text-xl md:text-2xl font-bold">17:30</div>
+          <div class="text-lg md:text-2xl font-bold">17:30</div>
         </div>
         <a id="mapsLink"
-         href="https://maps.app.goo.gl/m6kBDmE7hJWNE5pb9"
-         target="_blank" rel="noreferrer"
-         class="bg-rose-50 rounded-xl p-4 hover:bg-rose-100 transition"
-         aria-label="פתח מפה ב-Google Maps">
-        <div class="text-sm opacity-70">מיקום</div>
-        <div class="text-xl md:text-2xl font-bold decoration-rose-300">מפה</div>
+           href="https://maps.app.goo.gl/m6kBDmE7hJWNE5pb9"
+           target="_blank" rel="noreferrer"
+           class="bg-rose-50 rounded-xl p-3 md:p-4 hover:bg-rose-100 transition block"
+           aria-label="פתח מפה ב-Google Maps">
+          <div class="text-sm opacity-70">מיקום</div>
+          <div class="text-lg md:text-2xl font-bold underline decoration-rose-300">מפה</div>
         </a>
-
       </div>
 
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-        <div class="relative group order-1 md:order-1">
-          <video id="videoRight" class="vid" autoplay muted playsinline loop preload="metadata" poster="restaurant_poster.jpg">
-            <source src="koala_pig_restaurant.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="relative group order-2 md:order-2">
-          <video id="videoLeft" class="vid" autoplay muted playsinline loop preload="metadata" poster="park_poster.jpg">
-            <source src="koala_pig_park.mp4" type="video/mp4" />
-          </video>
-        </div>
+      <div class="mt-8 grid grid-cols-2 gap-2 md:gap-4 items-center w-full">
+        <video id="videoRight" class="vid" autoplay muted playsinline loop preload="metadata" poster="restaurant_poster.jpg">
+          <source src="koala_pig_restaurant.mp4" type="video/mp4" />
+        </video>
+        <video id="videoLeft" class="vid" autoplay muted playsinline loop preload="metadata" poster="park_poster.jpg">
+          <source src="koala_pig_park.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div class="mt-8">
         <div class="text-center text-sm opacity-70 mb-2">ספירה לאחור לערב שלנו</div>
-        <div class="flex justify-center gap-3 md:gap-6" id="countdown" dir="ltr" aria-live="polite"></div>
+        <div class="flex flex-wrap justify-center gap-2 md:gap-6" id="countdown" dir="ltr" aria-live="polite"></div>
       </div>
 
       <p class="mt-10 text-center leading-8 text-gray-700">
         חריושקה וקואלה יוצאים סוף-סוף לדייט הראשון שלהם 🐨🐷 — ערב עם סושי, חיוכים, ורגעים של אהבה אמיתית.
       </p>
 
-      <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-4">
-        <a id="whatsAppLink" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-2xl shadow bg-rose-500 text-white hover:bg-rose-600 transition text-lg" aria-label="פתח וואטסאפ אליי">אני באה! 💌</a>
-        <a id="mapsLink2" target="_blank" rel="noreferrer" class="px-6 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg" aria-label="ניווט למקום">ניווט למקום 📍</a>
-        <a id="icsLink" download="date.ics" class="px-6 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg" aria-label="הוספה ליומן">הוספה ליומן 🗓️</a>
+      <div class="mt-8 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+        <a id="whatsAppLink" href="https://wa.me/972533023234?text=%D7%94%D7%99%D7%99%20%D7%A7%D7%95%D7%90%D7%9C%D7%94%20%D7%A9%D7%9C%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%96%D7%9E%D7%99%D7%9F%20%D7%90%D7%95%D7%AA%D7%9A%20%D7%9C%D7%93%D7%99%D7%99%D7%98%20%D7%94%D7%A8%D7%90%D7%A9%D7%95%D7%9F%20%D7%A9%D7%9C%D7%A0%D7%95%20%D7%91-MOON%20SUSHI%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91%20%E2%80%93%20%D7%91%D7%95%D7%92%D7%A8%D7%A9%D7%95%D7%91%2C%20%D7%91-21.10.2025%20%D7%91%D7%A9%D7%A2%D7%94%2017%3A30.%20%D7%90%D7%A0%D7%99%20%D7%9B%D7%91%D7%A8%20%D7%9E%D7%AA%D7%A8%D7%92%D7%A9%20%F0%9F%90%A8%E2%9D%A4%EF%B8%8F%F0%9F%90%B7" target="_blank" rel="noreferrer"
+           class="px-5 py-3 rounded-2xl shadow bg-rose-500 text-white hover:bg-rose-600 transition text-lg"
+           aria-label="פתח וואטסאפ אליי">אני באה! 💌</a>
+        <a id="mapsLink2" href="https://maps.app.goo.gl/m6kBDmE7hJWNE5pb9" target="_blank" rel="noreferrer"
+           class="px-5 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg"
+           aria-label="ניווט למקום">ניווט למקום 📍</a>
+        <a id="icsLink" href="data:text/calendar;charset=utf-8,BEGIN%3AVCALENDAR%0D%0AVERSION%3A2.0%0D%0APRODID%3A-//Koala%26Hryushka//Date%20Invite//HE%0D%0ABEGIN%3AVEVENT%0D%0AUID%3Akoala-hryushka-20251021%40invite%0D%0ADTSTAMP%3A20251001T120000Z%0D%0ADTSTART%3A20251021T143000Z%0D%0ADTEND%3A20251021T163000Z%0D%0ASUMMARY%3A%D7%93%D7%99%D7%99%D7%98%20%D7%A8%D7%90%D7%A9%D7%95%D7%9F%20%E2%80%94%20MOON%20SUSHI%0D%0ALOCATION%3AMOON%20SUSHI%2C%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91%20%28%D7%91%D7%95%D7%92%D7%A8%D7%A9%D7%95%D7%91%29%0D%0ADESCRIPTION%3AKoala%20%26%20Hryushka%E2%80%99s%20First%20Date%20%E2%80%94%20%F0%9F%8D%A3%E2%9D%A4%EF%B8%8F%0D%0AEND%3AVEVENT%0D%0AEND%3AVCALENDAR" download="date.ics"
+           class="px-5 py-3 rounded-2xl shadow bg-white border hover:bg-rose-50 transition text-lg"
+           aria-label="הוספה ליומן">הוספה ליומן 🗓️</a>
       </div>
     </section>
 
@@ -108,5 +108,42 @@
       <span class="text-3xl">❤️</span>
     </div>
   </main>
+
+  <script>
+    (function(){
+      const DATE_ISO = '2025-10-21T17:30:00+03:00';
+      const countdown = document.getElementById('countdown');
+      const units = [
+        { key: 'days', label: 'ימים' },
+        { key: 'hours', label: 'שעות' },
+        { key: 'minutes', label: 'דקות' },
+        { key: 'seconds', label: 'שניות' }
+      ];
+      const boxes = {};
+      units.forEach(u => {
+        const box = document.createElement('div');
+        box.className = 'bg-white rounded-xl shadow px-3 py-2 md:px-4 md:py-3 min-w-[68px] md:min-w-[78px] text-center';
+        box.innerHTML = `<div class="text-3xl font-extrabold num" id="val-${u.key}">00</div><div class="text-xs opacity-60 mt-1">${u.label}</div>`;
+        countdown.appendChild(box);
+        boxes[u.key] = box.querySelector(`#val-${u.key}`);
+      });
+      function pad(n){ return String(n).padStart(2,'0'); }
+      const target = new Date(DATE_ISO).getTime();
+      function tick(){ 
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff / (1000*60*60)) % 24);
+        const m = Math.floor((diff / (1000*60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+        boxes.days.textContent = pad(d);
+        boxes.hours.textContent = pad(h);
+        boxes.minutes.textContent = pad(m);
+        boxes.seconds.textContent = pad(s);
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>
